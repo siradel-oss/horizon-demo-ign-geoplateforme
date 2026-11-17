@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>IGN Explorer</title>
+        <meta
+            name="description"
+            content="Experimental 3D explorer of the IGN Géoplateforme open data catalogue, a demonstrator of the Horizon 3D engine."
+        />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <!-- GitHub Pages cannot send COOP/COEP headers: this service worker adds
+             them so SharedArrayBuffer is available. No-op when already isolated. -->
+        <script src="coi-serviceworker.min.js"></script>
+        <link rel="stylesheet" href="/src/index.css" />
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+</html>

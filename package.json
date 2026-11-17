@@ -1,0 +1,47 @@
+{
+    "name": "dih-ign-explorer",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Experimental 3D explorer of the IGN Géoplateforme open data catalogue, built as a demonstrator of the Horizon 3D engine.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/siradel-oss/dih-ign-explorer.git"
+    },
+    "homepage": "https://github.com/siradel-oss/dih-ign-explorer",
+    "license": "MIT",
+    "type": "module",
+    "engines": {
+        "node": "^20.19.0 || >=22.12.0"
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "run-p type-check \"build-only {@}\" --",
+        "preview": "vite preview",
+        "build-only": "vite build",
+        "type-check": "vue-tsc --build",
+        "format": "prettier . --write"
+    },
+    "dependencies": {
+        "@siradel-oss/horizon-api": "26.1.0",
+        "@siradel-oss/horizon-core": "26.1.0",
+        "@siradel-oss/horizon-protocol": "26.1.0",
+        "@tailwindcss/vite": "^4.3.3",
+        "minisearch": "^7.2.0",
+        "tailwindcss": "^4.3.3",
+        "vue": "^3.5.43",
+        "vue-i18n": "^11.4.12"
+    },
+    "devDependencies": {
+        "@tsconfig/node24": "^24.0.5",
+        "@types/node": "^24.13.6",
+        "@vitejs/plugin-vue": "^6.0.9",
+        "@vue/tsconfig": "^0.9.1",
+        "npm-run-all2": "^9.0.3",
+        "prettier": "^3.9.8",
+        "typescript": "~6.0.3",
+        "vite": "^8.3.0",
+        "vite-plugin-vue-devtools": "^8.2.1",
+        "vue-tsc": "^3.3.11"
+    },
+    "packageManager": "pnpm@11.27.1+sha512.a81d4c21b9b09a4b0aebf90ef5e527d4262bdda322d26082978cb549023ac6d9cafc98b19fffaa5c71db438a65f70224edb78d7311187861ff96480d1cdca23c"
+}
