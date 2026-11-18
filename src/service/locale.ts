@@ -2,7 +2,7 @@
 
 export type Locale = "en" | "fr";
 
-const STORAGE_KEY = "dih-ign-explorer:lang";
+const STORAGE_KEY = "horizon-demo-ign-geoplateforme:lang";
 
 export function initialLocale(): Locale {
     const fromUrl = new URLSearchParams(location.search).get("lang");

@@ -1,20 +1,55 @@
-# IGN Explorer
+# IGN Explorer — the IGN Géoplateforme catalogue on a 3D globe
 
-An experimental **3D explorer of the IGN Géoplateforme open data catalogue**, in
-English and French. Browse the catalogues of the French national mapping agency's
-public services (aerial imagery, maps, elevation models, vector tiles), add layers
-to a 3D globe, reorder and restyle them, search addresses and play with the
-lighting.
+An experimental **3D web viewer for the IGN Géoplateforme open data catalogue**,
+in English and French. Browse the public WMTS, WMS and vector tile services of the
+French national mapping agency and stack them on a 3D globe, right in the browser.
 
-> **A demonstrator.** IGN Explorer is a demo of
-> [Horizon](https://horizon.oss.siradel.com), Siradel's open source geospatial 3D
-> engine, which grew out of the [SCE](https://sce.oss.siradel.com) ecosystem.
-> It is still an experiment: layers are shown as published, without validation,
-> and the rendering may contain small errors.
+[![IGN Explorer: aerial imagery of the Mont Blanc massif on the 3D globe, with the layers panel](.github/screenshot.webp)](https://siradel-oss.github.io/horizon-demo-ign-geoplateforme/)
+
+**[▶ Live demo](https://siradel-oss.github.io/horizon-demo-ign-geoplateforme/)**
+
+## Features
+
+- Browse and search the IGN Géoplateforme catalogues: aerial imagery
+  (orthophotos), maps, elevation models, vector tiles
+- Add WMTS, WMS and TMS layers to a 3D globe, reorder them and change their opacity
+  and style
+- OpenStreetMap vector tiles as a base map
+- Address search through the Géoplateforme geocoding service
+- Lighting and sun position controls
+- Per-layer attributions, English / French interface
+
+## Built with Horizon
+
+IGN Explorer is a demo of [Horizon](https://github.com/siradel-oss/horizon), Siradel's
+open source real-time 3D engine for map data on a globe (WebAssembly, WebGL 2,
+TypeScript). It shows how an application streams and combines third-party raster
+and vector services in Horizon.
+
+- Horizon: [website and documentation](https://horizon.oss.siradel.com) ·
+  [getting started](https://horizon.oss.siradel.com/doc/getting_started.html) ·
+  npm packages `@siradel-oss/horizon-{api,core,protocol}`
+- More Horizon demos:
+  [Reunion Island Explorer](https://github.com/siradel-oss/horizon-demo-reunion-island)
+  (3D hiking trails of La Réunion) ·
+  [Shoreline Explorer](https://github.com/siradel-oss/horizon-demo-coastline-erosion)
+  (coastal erosion in France)
+
+> **A demonstrator.** Horizon grew out of the [SCE](https://sce.oss.siradel.com)
+> ecosystem. IGN Explorer is still an experiment: layers are shown as published,
+> without validation, and the rendering may contain small errors.
 >
 > IGN Explorer is **not an official IGN product**. It is neither affiliated with
 > nor endorsed by the Institut national de l'information géographique et
 > forestière, and only uses the public services of the Géoplateforme.
+
+## En français
+
+IGN Explorer est une visionneuse 3D expérimentale du catalogue de données ouvertes
+de la **Géoplateforme de l'IGN** : orthophotos, cartes, modèles numériques de
+terrain et tuiles vectorielles (flux WMTS, WMS) sur un globe 3D, avec recherche
+d'adresse. Démonstrateur du moteur 3D open source Horizon, interface en français
+et en anglais.
 
 ## Run it
 

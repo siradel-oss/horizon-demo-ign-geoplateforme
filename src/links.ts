@@ -3,6 +3,6 @@ export const LINKS = {
     horizon: "https://horizon.oss.siradel.com",
     sce: "https://sce.oss.siradel.com",
     siradel: "https://www.siradel.com",
-    repo: "https://github.com/siradel-oss/dih-ign-explorer",
+    repo: "https://github.com/siradel-oss/horizon-demo-ign-geoplateforme",
     contactEmail: "opensource@siradel.com",
 } as const;

@@ -79,7 +79,7 @@ let catalogOpen = ref(false);
 let isFullscreen = ref(false);
 
 // The about window opens once, on the first visit.
-const ABOUT_SEEN_KEY = "dih-ign-explorer:about-seen";
+const ABOUT_SEEN_KEY = "horizon-demo-ign-geoplateforme:about-seen";
 let aboutOpen = ref(false);
 try {
     aboutOpen.value = !localStorage.getItem(ABOUT_SEEN_KEY);

@@ -6,8 +6,38 @@
         <title>IGN Explorer</title>
         <meta
             name="description"
-            content="Experimental 3D explorer of the IGN Géoplateforme open data catalogue, a demonstrator of the Horizon 3D engine."
+            content="3D web viewer for the IGN Géoplateforme open data catalogue: WMTS, WMS, vector tiles and elevation on a 3D globe. Built with the Horizon 3D engine."
         />
+        <!-- Link previews (Open Graph): absolute URLs, the build itself uses relative ones. -->
+        <link
+            rel="canonical"
+            href="https://siradel-oss.github.io/horizon-demo-ign-geoplateforme/"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Horizon demos · Siradel open source" />
+        <meta
+            property="og:title"
+            content="IGN Explorer — the IGN Géoplateforme catalogue on a 3D globe"
+        />
+        <meta
+            property="og:description"
+            content="3D web viewer for the IGN Géoplateforme open data catalogue: WMTS, WMS, vector tiles and elevation on a 3D globe. Built with the Horizon 3D engine."
+        />
+        <meta
+            property="og:url"
+            content="https://siradel-oss.github.io/horizon-demo-ign-geoplateforme/"
+        />
+        <meta
+            property="og:image"
+            content="https://siradel-oss.github.io/horizon-demo-ign-geoplateforme/og-image.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="IGN Explorer: aerial imagery of the Mont Blanc massif on the 3D globe, with the layers panel"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <!-- GitHub Pages cannot send COOP/COEP headers: this service worker adds
              them so SharedArrayBuffer is available. No-op when already isolated. -->
