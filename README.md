@@ -4,9 +4,9 @@ An experimental **3D web viewer for the IGN Géoplateforme open data catalogue**
 in English and French. Browse the public WMTS, WMS and vector tile services of the
 French national mapping agency and stack them on a 3D globe, right in the browser.
 
-[![IGN Explorer: the BD ALTI® terrain relief layer over mountains in 3D, with the layers panel](.github/screenshot.webp)](https://siradel-oss.github.io/horizon-demo-ign-geoplateforme/)
+[![IGN Explorer: the BD ALTI® terrain relief layer over mountains in 3D, with the layers panel](.github/screenshot.webp)](https://oss.siradel.com/horizon-demo-ign-geoplateforme/)
 
-**[▶ Live demo](https://siradel-oss.github.io/horizon-demo-ign-geoplateforme/)**
+**[▶ Live demo](https://oss.siradel.com/horizon-demo-ign-geoplateforme/)**
 
 ## Features
 
