@@ -3,7 +3,6 @@ import { HrzProtocol } from "@siradel-oss/horizon-protocol";
 import VectorProperties from "@/layout/layers/VectorProperties.vue";
 import VectorSwatch from "@/layout/layers/VectorSwatch.vue";
 import type { VectorField } from "@/service/ign-catalog";
-import { px } from "@/service/device";
 import { hexToColor } from "@/utils";
 import { Layer, type BaseLayerState } from "./layer";
 
@@ -149,7 +148,7 @@ function buildStyle(
                 sceneViews: { bits: 1 },
                 flatOverlayPolyline: {
                     color: { defaultValue: stroke },
-                    width: { defaultValue: px(2) },
+                    width: { defaultValue: 2 },
                     widthUnit: HrzProtocol.InWorldSizeUnit.IN_WORLD_SIZE_IN_PIXELS,
                     roundTips: true,
                     zIndex,
@@ -161,7 +160,7 @@ function buildStyle(
                 sceneViews: { bits: 1 },
                 flatOverlayPoint: {
                     color: { defaultValue: stroke },
-                    radius: { defaultValue: px(5) },
+                    radius: { defaultValue: 5 },
                     radiusUnit: HrzProtocol.InWorldSizeUnit.IN_WORLD_SIZE_IN_PIXELS,
                     zIndex,
                     clipToTile: true,

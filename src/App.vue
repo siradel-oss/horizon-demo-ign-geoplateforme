@@ -19,7 +19,7 @@ import { useI18n } from "./service/i18n";
 import AboutWindow from "./layout/AboutWindow.vue";
 import SiradelLogo from "./components/SiradelLogo.vue";
 import { LINKS } from "./links";
-import { fixPointerScale, PHONE } from "./service/device";
+import { PHONE } from "./service/device";
 
 const { t } = useI18n();
 
@@ -160,7 +160,6 @@ onMounted(() => {
         VIEWER_OPTIONS,
         (backend: HrzCoreBackend | null, initStatus: HrzProtocol.ViewerInitStatus) => {
             if (initStatus === HrzProtocol.ViewerInitStatus.INIT_SUCCESS && backend) {
-                fixPointerScale(canvas.value!);
                 horizonService.initialize(backend);
             }
         },
