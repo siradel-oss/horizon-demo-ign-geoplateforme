@@ -9,6 +9,7 @@ const { open = true, position: side = "left" } = defineProps<{
     <Transition :name="`slide-${position}`" appear>
         <div
             v-if="open"
+            :class="{ sheet: position !== 'center' }"
             class="backdrop-blur-lg bg-slate-800/60 border border-white/10 rounded-lg overflow-auto text-white shadow-[0_0px_20px_rgba(0,0,0,0.3)]"
         >
             <slot></slot>
@@ -18,6 +19,12 @@ const { open = true, position: side = "left" } = defineProps<{
 
 <style scoped>
 @reference "tailwindcss/theme";
+
+/* Phone: side windows become a sheet above the bottom tool bar, full width,
+   whatever position their caller gives them on larger screens. */
+.sheet {
+    @apply max-sm:fixed max-sm:inset-x-2 max-sm:top-auto max-sm:bottom-[calc(var(--toolbar-h)+0.5rem)] max-sm:w-auto max-sm:max-h-[60dvh] max-sm:z-40 max-sm:bg-slate-800/90;
+}
 
 .slide-right-enter-active,
 .slide-right-leave-active,

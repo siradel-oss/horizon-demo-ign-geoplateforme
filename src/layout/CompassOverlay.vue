@@ -46,11 +46,11 @@ async function resetView() {
 
 <template>
     <div
-        class="rounded-full p-2 backdrop-blur-md bg-slate-700/30 shadow-[0_0px_30px_rgba(0,0,0,0.3)] border border-white/10 pointer-events-auto cursor-pointer"
+        class="rounded-full p-2 max-sm:p-1 backdrop-blur-md bg-slate-700/30 shadow-[0_0px_30px_rgba(0,0,0,0.3)] border border-white/10 pointer-events-auto cursor-pointer"
     >
         <div
             ref="compass"
-            class="w-20 h-20 bg-slate-100 mask-[url(/resources/compass.svg)] mask-center mask-no-repeat mask-contain transition-transform"
+            class="w-20 h-20 max-sm:w-11 max-sm:h-11 bg-slate-100 mask-[url(/resources/compass.svg)] mask-center mask-no-repeat mask-contain transition-transform"
             @click.stop="resetView"
         ></div>
     </div>

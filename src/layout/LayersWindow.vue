@@ -80,8 +80,9 @@ const groupedLayers = computed(() =>
                                         group.dragGroup.isDraggedOver(index),
                                 }"
                             >
+                                <!-- Reordering uses HTML drag and drop, which touch screens lack. -->
                                 <div
-                                    class="opacity-50 hover:opacity-100 cursor-move"
+                                    class="opacity-50 hover:opacity-100 cursor-move pointer-coarse:hidden"
                                     @pointerdown="group.dragGroup.startDrag()"
                                 >
                                     <DragHandle />
@@ -105,7 +106,7 @@ const groupedLayers = computed(() =>
                                 >
                                     {{ entry.layer.name }}
                                 </div>
-                                <div class="hidden group-hover:block">
+                                <div class="hidden group-hover:block pointer-coarse:block">
                                     <IconButton
                                         icon="delete"
                                         icon-size="md"

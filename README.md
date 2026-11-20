@@ -18,6 +18,8 @@ French national mapping agency and stack them on a 3D globe, right in the browse
 - Address search through the Géoplateforme geocoding service
 - Lighting and sun position controls
 - Per-layer attributions, English / French interface
+- Works on phones: tool bar along the bottom edge, panels as bottom sheets
+  (layer reordering needs a mouse)
 
 ## Built with Horizon
 

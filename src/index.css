@@ -40,3 +40,13 @@ a:focus {
 hr {
     @apply my-4 border-white/20;
 }
+
+:root {
+    /* Phone tool bar along the bottom edge, home indicator included. */
+    --toolbar-h: calc(3.5rem + env(safe-area-inset-bottom));
+}
+
+body {
+    /* No pull-to-refresh or bounce: a vertical drag on the map moves the camera. */
+    overscroll-behavior: none;
+}

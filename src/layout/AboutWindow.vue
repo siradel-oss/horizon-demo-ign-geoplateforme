@@ -25,14 +25,14 @@ function setLocale(id: Locale | null) {
 <template>
     <div v-if="open" class="fixed inset-0 z-50 bg-black/40" @click="open = false"></div>
     <!-- Centred by a flex wrapper: the window's own transform runs its slide-in. -->
-    <div class="fixed z-50 inset-x-0 top-8 flex justify-center pointer-events-none">
+    <div class="fixed z-50 inset-x-0 top-8 max-sm:top-2 flex justify-center pointer-events-none">
         <Window
             :open="open"
             position="center"
             role="dialog"
             aria-modal="true"
             aria-labelledby="about-title"
-            class="pointer-events-auto w-[min(40rem,calc(100vw-2rem))] max-h-[calc(100vh-4rem)] p-5 text-sm"
+            class="pointer-events-auto w-[min(40rem,calc(100vw-2rem))] max-h-[calc(100dvh-4rem)] max-sm:max-h-[calc(100dvh-var(--toolbar-h)-1rem)] p-5 text-sm"
         >
             <div class="flex flex-row items-center gap-3 mb-3">
                 <h1 id="about-title" class="grow text-xl font-semibold">{{ t("about.title") }}</h1>

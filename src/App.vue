@@ -19,6 +19,7 @@ import { useI18n } from "./service/i18n";
 import AboutWindow from "./layout/AboutWindow.vue";
 import SiradelLogo from "./components/SiradelLogo.vue";
 import { LINKS } from "./links";
+import { fixPointerScale, PHONE } from "./service/device";
 
 const { t } = useI18n();
 
@@ -124,7 +125,8 @@ async function onHorizonReady(api: HrzApi.AsyncApi) {
     horizonService.onMessage("viewerReady", async () => {
         if (api) {
             const cfg = await api.ViewerService.getConfiguration();
-            if (cfg.graphicsProfile != HrzProtocol.GraphicsLevel.GRAPHICS_LEVEL_HIGH) {
+            // Phones run at a lower level on purpose: no warning there.
+            if (!PHONE && cfg.graphicsProfile != HrzProtocol.GraphicsLevel.GRAPHICS_LEVEL_HIGH) {
                 warningMsg.value = t("graphics_level_warnings_msg");
             }
 
@@ -158,6 +160,7 @@ onMounted(() => {
         VIEWER_OPTIONS,
         (backend: HrzCoreBackend | null, initStatus: HrzProtocol.ViewerInitStatus) => {
             if (initStatus === HrzProtocol.ViewerInitStatus.INIT_SUCCESS && backend) {
+                fixPointerScale(canvas.value!);
                 horizonService.initialize(backend);
             }
         },
@@ -191,18 +194,19 @@ function toggleFullscreen() {
 
 <template>
     <div
-        class="w-screen h-screen relative bg-slate-700 overflow-clip select-none"
+        class="w-screen h-dvh relative bg-slate-700 overflow-clip select-none"
         @keydown.escape="closeWindows"
         tabindex="0"
     >
         <div class="absolute inset-0">
-            <canvas ref="hrz-canvas" class="w-full h-full focus:outline-none"></canvas>
+            <canvas ref="hrz-canvas" class="w-full h-full touch-none focus:outline-none"></canvas>
         </div>
         <div
-            class="absolute top-4 bottom-4 left-4 gap-4 flex flex-row items-start pointer-events-none"
+            class="absolute top-4 bottom-4 left-4 gap-4 flex flex-row items-start pointer-events-none max-sm:inset-x-0 max-sm:top-auto max-sm:bottom-0 max-sm:gap-0"
         >
+            <!-- Phone: the tool column becomes a bar along the bottom edge. -->
             <div
-                class="z-50 pointer-events-auto h-full p-3 flex flex-col gap-2 items-center shadow-[0_0px_30px_rgba(0,0,0,0.3)] rounded-xl backdrop-blur-md bg-slate-700/30 border border-white/10"
+                class="z-50 max-sm:z-30 pointer-events-auto h-full p-3 flex flex-col gap-2 items-center shadow-[0_0px_30px_rgba(0,0,0,0.3)] rounded-xl backdrop-blur-md bg-slate-700/30 border border-white/10 max-sm:w-full max-sm:h-(--toolbar-h) max-sm:flex-row max-sm:justify-between max-sm:gap-0 max-sm:px-2 max-sm:py-0 max-sm:pb-[env(safe-area-inset-bottom)] max-sm:rounded-none max-sm:border-x-0 max-sm:border-b-0 max-sm:bg-slate-800/80"
             >
                 <IconButton
                     icon="layers"
@@ -237,7 +241,7 @@ function toggleFullscreen() {
                         lightingOpen = !lightingOpen;
                     "
                 />
-                <div class="grow"></div>
+                <div class="grow max-sm:hidden"></div>
                 <IconButton
                     icon="info"
                     :tooltip="t('about.open')"
@@ -264,7 +268,7 @@ function toggleFullscreen() {
                 <LightingWindow v-model:open="lightingOpen" class="pointer-events-auto" />
             </div>
         </div>
-        <CompassOverlay class="absolute bottom-4 right-4" />
+        <CompassOverlay class="absolute bottom-4 right-4 max-sm:bottom-auto max-sm:top-10 max-sm:right-2" />
         <AttributionsWindow v-model:open="attributionsOpen" />
         <CatalogWindow v-model:open="catalogOpen" />
         <AboutWindow v-model:open="aboutOpen" />
@@ -280,7 +284,7 @@ function toggleFullscreen() {
         </a>
         <Transition name="fade">
             <LoadingIndicator
-                class="absolute bottom-4 left-1/2 transform -translate-x-1/2"
+                class="absolute bottom-4 left-1/2 transform -translate-x-1/2 max-sm:bottom-[calc(var(--toolbar-h)+0.5rem)]"
                 v-show="successiveIsNotWorking < 5"
             />
         </Transition>

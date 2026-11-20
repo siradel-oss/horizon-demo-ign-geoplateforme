@@ -178,16 +178,16 @@ async function addVectorLayer(
     <Window
         :open="open"
         position="center"
-        class="absolute w-240 h-150 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+        class="absolute w-240 h-150 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 max-w-[calc(100vw-1rem)] max-sm:top-2 max-sm:translate-y-0 max-sm:h-[calc(100dvh-var(--toolbar-h)-1rem)]"
         @keydown.escape.stop="open = false"
         tabindex="0"
     >
         <div class="flex flex-col h-full">
             <div class="flex flex-row items-center p-4">
-                <h1 class="grow text-3xl font-semibold" v-if="selectedCatalog === null">
+                <h1 class="grow text-3xl max-sm:text-xl font-semibold" v-if="selectedCatalog === null">
                     {{ t("catalog") }}
                 </h1>
-                <h1 class="grow text-3xl font-semibold" v-else>
+                <h1 class="grow text-3xl max-sm:text-xl font-semibold" v-else>
                     <a href="javascript:void(0)" @click="selectedCatalog = null">{{
                         t("catalog")
                     }}</a>
@@ -195,12 +195,12 @@ async function addVectorLayer(
                 </h1>
                 <IconButton icon="close" icon-size="md" @click="open = false" />
             </div>
-            <div class="overflow-x-clip grow relative">
+            <div class="overflow-x-clip grow relative max-sm:overflow-y-auto">
                 <Transition name="slide-right">
                     <ul
                         v-if="selectedCatalog === null"
                         id="left"
-                        class="grid grid-cols-4 gap-3 absolute px-4 w-full"
+                        class="grid grid-cols-4 max-sm:grid-cols-2 gap-3 absolute px-4 w-full"
                     >
                         <li
                             v-for="(catalog, index) in IgnCatalog.CATALOGS"
@@ -212,12 +212,12 @@ async function addVectorLayer(
                         </li>
                     </ul>
                     <div v-else id="right" class="absolute w-full flex flex-col gap-3 h-full">
-                        <div class="px-4 flex flex-row gap-4">
+                        <div class="px-4 flex flex-row flex-wrap gap-x-4 gap-y-2">
                             <Input
                                 ref="filterInput"
                                 v-model="filterQuery"
                                 :placeholder="t('filter_layers')"
-                                class="w-1/2"
+                                class="w-1/2 max-sm:w-full"
                             />
                             <ChoiceGroup
                                 :options="Object.values(IgnCatalog.TileType)"
@@ -235,7 +235,7 @@ async function addVectorLayer(
                             <li
                                 v-for="layer in filteredLayersList"
                                 :key="layer.identifier"
-                                class="flex flex-row items-center justify-between py-1"
+                                class="flex flex-row items-center justify-between gap-2 py-1"
                             >
                                 <span class="max-w-3/4">
                                     {{ layer.title }}
